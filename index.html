@@ -12,15 +12,26 @@
   <div id="app"></div>
 
   <script>
+    // let HelloComponent = React.createClass({
+    //   render: function() {
+    //     return React.createElement("h1", null, "hello React")
+    //   }
+    // })
+
+    // ReactDOM.render(
+    //   React.createElement(HelloComponent, null),
+    //   document.getElementById("app")
+    // )
+
     let HelloComponent = React.createClass({
       render: function() {
-        return React.createElement("h1", null, "hello React")
+        return React.createElement("h1", null, "hello world")
       }
     })
 
     ReactDOM.render(
       React.createElement(HelloComponent, null),
-      document.getElementById("app")
+      document.querySelector("#app")
     )
   </script>
 </body>
