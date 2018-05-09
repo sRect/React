@@ -11,6 +11,7 @@
 </head>
 <body>
   <div id="app"></div>
+  <div id="app2"></div>
 
   <script type="text/babel">
     let title = 123;
@@ -23,9 +24,25 @@
       }
     })
 
+    let HelloComponent = React.createClass({
+      getDefaultProps() {
+        return {
+          title: "hello React"
+        }
+      },
+      render() {
+        return <p>{ this.props.title }</p>
+      }
+    })
+
     ReactDOM.render(
       <Mycomponent title={title}/>,
       document.querySelector("#app")
+    )
+
+    ReactDOM.render(
+      <HelloComponent/>,
+      document.querySelector("#app2")
     )
   </script>
 </body>
