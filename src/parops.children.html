@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="../lib/react.js"></script>
+  <script src="../lib/react-dom.js"></script>
+  <script src="http://cdn.bootcss.com/babel-core/5.8.38/browser.min.js"></script>
+</head>
+<body>
+  <div id="app"></div>
+
+  <script type="text/babel">
+    let Mycomponent = React.createClass({
+      componentDidMount() {
+        console.log(this.props.children)
+      },
+      render() {
+        return <ul>
+          {
+            React.Children.map(this.props.children,item => {
+              return <li>{ item }</li>
+            })
+          }
+        </ul>
+      }
+    })
+
+    ReactDOM.render(
+      <Mycomponent>
+        <b>hello</b>
+        <b>world</b>
+      </Mycomponent>,
+      document.querySelector("#app")
+    )
+  </script>
+</body>
+</html>
