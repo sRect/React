@@ -13,40 +13,31 @@
   <div id="app"></div>
 
   <script type="text/babel">
-    var arr = ["a", 666, "jack"];
-    
-    // 注意：MyComponent首字母要大写
-    // var MyComponent = React.createClass({
-    //   render: function() { 
-    //     return  <div> 
-    //       { arr.map(function(item) { 
-    //         return <div key={item}> hello,{ item }! </div> 
-    //       }) } 
-    //     </div>
-    //   }});
-
-    // ReactDOM.render(
-    //   <MyComponent/>,
-    //   document.getElementById("app")
-    // )
-
     var Mycomponent = React.createClass({
+      getInitialState: function() {
+        return {
+          enable: false
+        }
+      },
+      handleClick: function() {
+        this.setState({
+          enable: !this.state.enable
+        })
+      },
       render: function() {
         return <div>
-          {
-            arr.map(item => {
-              return <div key="item">hello,{item}!</div>
-            })
-          }
+          <p>
+            <input type="text" disabled={this.state.enable} />
+            <button onClick={this.handleClick}>click</button>
+          </p>
         </div>
       }
-    });
+    })
 
     ReactDOM.render(
-      <Mycomponent/>,
+      <Mycomponent />,
       document.querySelector("#app")
     )
   </script>
 </body>
 </html>
-
