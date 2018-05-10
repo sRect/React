@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="../lib/react.js"></script>
+  <script src="../lib/react-dom.js"></script>
+  <script src="http://cdn.bootcss.com/babel-core/5.8.38/browser.min.js"></script>
+</head>
+<body>
+  <div id="app"></div>
+
+  <script type="text/babel">
+    let Mycomponent = React.createClass({
+      getInitialState() {
+        return {
+          username: "10086",
+          checked: true,
+          gender: "man"
+        }
+      },
+      handleChange(event) {
+        let newState = {};
+
+        newState[event.target.name] = event.target.name == "checked" ? event.target.checked : event.target.value;
+        this.setState(newState);
+
+        console.log(newState)
+      },
+      handleSubmit() {
+        alert(`
+          ${this.state.username} 
+          ${this.state.checked ? '是' : '不是'} 
+          ${this.state.gender}
+        `)
+      },
+      render() {
+        return(
+          <form onSubmit={this.handleSubmit}>
+            <label htmlFor="username">用户名：</label>
+            <input type="text" id="username" name="username" value={this.state.username} onChange={this.handleChange}/>
+            <br/>
+
+            <label htmlFor="checkbox">请勾选：</label>
+            <input type="checkbox" id="checkbox" name="checked" checked={this.state.checked} onChange={this.handleChange}/>
+            <br/>
+ 
+            <label htmlFor="gender"></label>
+            <select name="gender" id="gender" value={this.state.gender} onChange={this.handleChange}>
+              <option value="man">男</option>
+              <option value="girl">女</option>
+            </select>
+            <br/>
+
+            <input type="submit" value="submit"/>
+          </form>
+        )
+      }
+    })
+
+    ReactDOM.render(
+      <Mycomponent/>,
+      document.querySelector("#app")
+    )
+  </script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="../lib/react.js"></script>
+  <script src="../lib/react-dom.js"></script>
+  <script src="http://cdn.bootcss.com/babel-core/5.8.38/browser.min.js"></script>
+</head>
+<body>
+  <div id="app"></div>
+
+  <script type="text/babel">
+    let HelloComponent = React.createClass({
+      getInitialState() {
+        return {
+          username: "11",
+          gender: "girl",
+          checked: true
+        }
+      },
+      submitHandler(e) {
+        e.preventDefault();
+        let is = this.state.checked ? "是" : "否";
+        let gender = this.state.gender === "man" ? "男" : "女";
+        console.log(this.state.username + is + gender);
+      },
+      handleChange(name, event) {
+        let newState={};
+        newState[name] = name == "checked" ? event.target.checked : event.target.value;
+        this.setState(newState);
+        console.log(newState);
+      },
+      render() {
+        return (
+          <form onSubmit={this.submitHandler}>
+            <label htmlFor="username">请输入您的姓名：</label>
+            <input type="text" name="username" onChange={this.handleChange.bind(this,"username")} value={this.state.username} id="username" />
+            <br/>
+
+            <label htmlFor="checkbox">是或否：</label>
+            <input  type="checkbox"  name="checked" id="checkbox" onChange={this.handleChange.bind(this,"checked")} checked={this.state.checked}  id="checkbox" />
+            <br/>
+
+            <label htmlFor="gender">请选择</label>
+            <select name="gender" onChange={this.handleChange.bind(this,"gender")} value={this.state.gender} id="gender">
+              <option value="man">帅哥</option>
+              <option value="girl">美女</option>
+            </select>
+            <br/>
+
+            <button type="submit">提交</button>
+          </form>
+        )
+      }
+    })
+
+    ReactDOM.render(
+      <HelloComponent/>,
+      document.querySelector("#app")
+    )
+  </script>
+</body>
+</html>
