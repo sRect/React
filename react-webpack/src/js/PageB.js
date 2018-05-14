@@ -1,13 +1,20 @@
 import React, { Component } from "react"
 
 class PageB extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
+  }
+
+  componentWillMount() {
+    console.log(this.props)
   }
 
   render() {
     return (
-      <div>PageB</div>
+      <div>
+        <h2>PageB</h2>
+        <p>页面参数：{ JSON.stringify(this.props.match.params) }</p>
+      </div>
     )
   }
 }
