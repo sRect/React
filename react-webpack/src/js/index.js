@@ -1,17 +1,21 @@
 import React from "react"
 import ReactDOM from "react-dom"
-import { BrowserRouter as Router, Route } from "react-router-dom"
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
 
 import PageA from "./PageA"
 import PageB from "./PageB"
 import Nav from "./nav"
+import ErrorPage from "./ErrorPage"
 
 ReactDOM.render(
   <Router>
     <div>
       <Nav></Nav>
-      <Route exact path="/" component={PageA}></Route>
-      <Route exact path="/pageb" component={PageB}></Route>
+      <Switch>
+        <Route exact path="/" component={PageA}></Route>
+        <Route exact path="/pageb" component={PageB}></Route>
+        <Route component={ErrorPage}></Route>
+      </Switch>
     </div>
   </Router>,
   document.getElementById("app")
