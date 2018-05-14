@@ -11,7 +11,7 @@ ReactDOM.render(
     <div>
       <Nav></Nav>
       <Route exact path="/" component={PageA}></Route>
-      <Route path="/pageb" component={PageB}></Route>
+      <Route exact path="/pageb" component={PageB}></Route>
     </div>
   </Router>,
   document.getElementById("app")

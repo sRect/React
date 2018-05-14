@@ -4,8 +4,8 @@ import { NavLink } from "react-router-dom"
 const NavBar = () => {
   return(
     <div>
-    <NavLink exact to="/">PageA</NavLink>
-    <NavLink to="pageb">PageB</NavLink>
+    <NavLink exact to="/">PageA</NavLink> | &nbsp;
+    <NavLink exact to="pageb">PageB</NavLink>
   </div>
   ) 
 }
