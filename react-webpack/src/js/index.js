@@ -1,6 +1,6 @@
 import React from "react"
 import ReactDOM from "react-dom"
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom"
 
 import PageA from "./PageA"
 import PageB from "./PageB"
@@ -14,6 +14,9 @@ ReactDOM.render(
       <Switch>
         <Route exact path="/" component={PageA}></Route>
         <Route exact path="/pageb" component={PageB}></Route>
+        {/* Redirect路由跳转 */}
+        <Redirect from="/redirect" to="/pageb"></Redirect>
+        {/* 注意：要把404错误页面设置到所有路由后面 */}
         <Route component={ErrorPage}></Route>
       </Switch>
     </div>

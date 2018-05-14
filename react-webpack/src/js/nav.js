@@ -8,7 +8,8 @@ const NavBar = () => {
     <div>
     <NavLink exact to="/" className="blue" activeClassName="active">PageA</NavLink> | &nbsp;
     <NavLink exact to="/pageb" activeClassName="active">PageB</NavLink> | &nbsp;
-    <NavLink  to="/pagec" activeClassName="active">PageC</NavLink>
+    <NavLink  to="/pagec" activeClassName="active">PageC</NavLink> | &nbsp;
+    <NavLink  to="/redirect" activeClassName="active">Redirect</NavLink>
   </div>
   ) 
 }
