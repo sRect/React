@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class CommentsPanel extends Component {
-  constructor(props) {
-    super(props)
-  }
+  // constructor(props) {
+  //   super(props)
+  // }
 
   render() {
     const commentArr = this.props.commentArr;
@@ -37,7 +37,7 @@ class CommentsPanel extends Component {
   }
 }
 
-CommentsPanel.prototypes = {
+CommentsPanel.propTypes = {
   commentArr: PropTypes.array.isRequired
 }
 
