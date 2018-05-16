@@ -11,7 +11,13 @@ class App extends Component {
     super()
 
     this.state = {
-      commentArr: []
+      commentArr: [{
+        username: "jack",
+        commentContent: "当初不该学php"
+      },{
+        username: "rose",
+        commentContent: "当初不该学php!"
+      }]
     }
   }
 
@@ -31,7 +37,7 @@ class App extends Component {
             <AddComment/>
           </div>
           <div className="col-lg-7 col-md-7 col-sm-7">
-            <CommentsPanel/>
+            <CommentsPanel commentArr={this.state.commentArr}/>
           </div>
         </div>
       </div>
