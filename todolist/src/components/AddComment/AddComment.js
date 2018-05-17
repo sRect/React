@@ -20,7 +20,12 @@ class AddComment extends Component {
   }
 
   addComment = () => {
-    this.props.handleAddComment(this.state)
+    if(this.state.username && this.state.commentContent ) {
+      this.props.handleAddComment(this.state)
+    }else {
+      alert("不可为空")
+    }
+    
   }
   
   render() {
