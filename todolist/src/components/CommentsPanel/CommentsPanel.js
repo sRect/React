@@ -6,6 +6,10 @@ class CommentsPanel extends Component {
   //   super(props)
   // }
 
+  handleDelete = (index) => {
+    this.props.deleteComment(index)
+  } 
+
   render() {
     let commentArr = this.props.commentArr;
     let display = commentArr.length > 0 ? "none" : "block";
@@ -25,7 +29,7 @@ class CommentsPanel extends Component {
                 <div className="list-group-item list-group-item-info" key={index}>
                   <h4 className="list-group-item-heading">{item.username}：</h4>
                   <p className="list-group-item-text">{item.commentContent}</p>
-                  <button type="button" className="btn btn-warning myBtn">删除</button>
+                  <button type="button" className="btn btn-warning myBtn" onClick={(e) => this.handleDelete(index)}>删除</button>
                 </div>
               )
             })
@@ -38,7 +42,8 @@ class CommentsPanel extends Component {
 }
 
 CommentsPanel.propTypes = {
-  commentArr: PropTypes.array.isRequired
+  commentArr: PropTypes.array.isRequired,
+  deleteComment: PropTypes.func.isRequired
 }
 
 export default CommentsPanel

@@ -20,10 +20,19 @@ class App extends Component {
     }
   }
 
-  handleAddComment = (obj) => {
+  handleAddComment = (obj) => { // 添加评论
     console.log(obj)
     let commentArr = this.state.commentArr;
     commentArr.unshift(obj);
+
+    this.setState({
+      commentArr
+    })
+  }
+
+  deleteComment = (index) => { // 删除评论
+    let commentArr = this.state.commentArr;
+    commentArr.splice(index, 1)
 
     this.setState({
       commentArr
@@ -46,7 +55,7 @@ class App extends Component {
             <AddComment handleAddComment={this.handleAddComment}/>
           </div>
           <div className="col-lg-7 col-md-7 col-sm-7">
-            <CommentsPanel commentArr={this.state.commentArr}/>
+            <CommentsPanel commentArr={this.state.commentArr} deleteComment={this.deleteComment}/>
           </div>
         </div>
       </div>
