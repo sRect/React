@@ -22,11 +22,12 @@ class App extends Component {
 
   handleAddComment = (obj) => {
     console.log(obj)
-    // let commentArr = this.state.commentArr.unshift(obj);
+    let commentArr = this.state.commentArr;
+    commentArr.unshift(obj);
 
-    // this.setState({
-    //   commentArr
-    // })
+    this.setState({
+      commentArr
+    })
   }
 
   render() {

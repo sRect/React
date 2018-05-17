@@ -7,7 +7,7 @@ class AddComment extends Component {
 
     this.state = {
       username: "",
-      comment: ""
+      commentContent: ""
     }
 
     this.handleInputChange = this.handleInputChange.bind(this)
@@ -16,11 +16,14 @@ class AddComment extends Component {
   handleInputChange(event) {
     let currentName = event.target.name;
     
-    currentName === "username" ? this.setState({username: event.target.value}) : this.setState({comment: event.target.value})
+    currentName === "username" ? this.setState({username: event.target.value}) : this.setState({commentContent: event.target.value})
+  }
+
+  addComment = () => {
+    this.props.handleAddComment(this.state)
   }
   
   render() {
-    let handleAddComment = this.props.handleAddComment;
 
     return(
       <div>
@@ -31,9 +34,9 @@ class AddComment extends Component {
           </div>
           <div className="form-group">
             <label htmlFor="comment">comment</label>
-            <input type="text" name="comment" className="form-control" id="comment" value={this.state.comment} placeholder="请输入您的留言" onChange={this.handleInputChange} />
+            <input type="text" name="comment" className="form-control" id="comment" value={this.state.commentContent} placeholder="请输入您的留言" onChange={this.handleInputChange} />
           </div>
-          <button type="button" className="btn btn-primary btn-lg" onClick={handleAddComment({username: this.state.username, comment: this.state.comment})}>添加</button>
+          <button type="button" className="btn btn-primary btn-lg" onClick={this.addComment}>添加</button>
         </form>
       </div>
     )
