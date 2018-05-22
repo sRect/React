@@ -48,7 +48,7 @@ class MainItem extends Component {
         <div className="checkbox">
           <label>
             <input type="checkbox" checked={obj.isChecked} onChange={this.handleChange} />
-            <p>{obj.val} <small>{moment(obj.date).format('YYYY-MM-DD, h:mm:ss a')}</small></p>
+            <p>{obj.val} <small className="bg-info">{moment(obj.date).format('YYYY-MM-DD, h:mm:ss a')}</small></p>
           </label>
         </div>
       </li>

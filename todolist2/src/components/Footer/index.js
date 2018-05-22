@@ -3,8 +3,8 @@ import PropTypes from "prop-types"
 
 class Footer extends Component {
 
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
 
     this.handleDelete = this.handleDelete.bind(this)
   }
@@ -15,6 +15,7 @@ class Footer extends Component {
 
   render() {
     let selectCount = this.props.selectCount;
+    let count = this.props.arr.length
 
     return(
       <div className="container">
@@ -23,7 +24,7 @@ class Footer extends Component {
             <div className="checkbox">
               <label>
                 <input type="checkbox"/>
-                <span>已选择{selectCount}条，共0条</span>
+                <span>已选择{selectCount}条，共{count}条</span>
               </label>
             </div>
           </div>
@@ -38,7 +39,8 @@ class Footer extends Component {
 
 Footer.proptypes = {
   selectCount: PropTypes.number.isRequired,
-  handleDelete: PropTypes.func.isRequired
+  handleDelete: PropTypes.func.isRequired,
+  arr: PropTypes.array.isRequired
 }
 
 export default Footer
