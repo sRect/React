@@ -1,27 +1,24 @@
 import React, {Component} from "react"
+import PropTypes from "prop-types"
+import MainItem from "../MainItem"
 
 class Main extends Component {
+  static propTypes = {
+    arr: PropTypes.array.isRequired
+  }
+
 
   render() {
+    let {arr} = this.props;
+
     return(
       <div className="container">
         <ul className="list-group">
-          <li className="list-group-item">
-            <div className="checkbox">
-              <label>
-                <input type="checkbox"/>
-                Cras justo odio
-              </label>
-            </div>
-          </li>
-          <li className="list-group-item">
-            <div className="checkbox">
-              <label>
-                <input type="checkbox"/>
-                Cras justo odio
-              </label>
-            </div>
-          </li>
+          {
+            arr.map((item, index) => {
+              return <MainItem itemObj={item} key={index}/>
+            })
+          }
         </ul>
       </div>
     )
