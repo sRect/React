@@ -6,7 +6,7 @@ class Footer extends Component {
     return(
       <div className="container">
         <div className="row">
-          <div className="col-lg-6">
+          <div className="col-lg-6 col-md-6 col-sm-6 col-xs-6">
             <div className="checkbox">
               <label>
                 <input type="checkbox"/>
@@ -14,7 +14,7 @@ class Footer extends Component {
               </label>
             </div>
           </div>
-          <div className="col-lg-6 text-right">
+          <div className="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right">
             <button type="button" className="btn btn-danger">（默认尺寸）Default button</button>
           </div>
         </div>
