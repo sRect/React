@@ -11,29 +11,54 @@ class App extends Component {
     super()
 
     this.state = {
-      arr: []
+      arr: [],
+      selectCount: 0
     }
   }
 
+  /**
+   * 添加信息
+   */
   handleAddInfo = (obj) => {
     let arr = this.state.arr;
     arr.unshift(obj);
-    console.log(obj)
+
     this.setState({
       arr
     })
   }
 
+  /**
+   * checkbox勾选
+   */
+  handleChecked = (index, obj) => {
+    console.log(obj)
+    let arr = this.state.arr, selectCount = 0;
+    arr.splice(index, 1, obj)
+
+
+    arr.forEach((item, index) => {
+      if(item.isChecked) {
+        selectCount += 1;
+      }
+    })
+
+    this.setState({
+      selectCount
+    })
+  }
+
   render() {
     let mainProps = {
-      arr: this.state.arr
+      arr: this.state.arr,
+      handleChecked: this.handleChecked
     }
 
     return (
       <div className="App">
         <Header handleAddInfo={this.handleAddInfo}/>
         <Main {...mainProps} />
-        <Footer />
+        <Footer selectCount={this.state.selectCount} />
       </div>
     );
   }

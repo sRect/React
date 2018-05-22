@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
+import PropTypes from "prop-types"
 
 class Footer extends Component {
 
   render() {
+    let selectCount = this.props.selectCount;
+
     return(
       <div className="container">
         <div className="row">
@@ -10,7 +13,7 @@ class Footer extends Component {
             <div className="checkbox">
               <label>
                 <input type="checkbox"/>
-                <span>已选择0条，共0条</span>
+                <span>已选择{selectCount}条，共0条</span>
               </label>
             </div>
           </div>
@@ -21,6 +24,10 @@ class Footer extends Component {
       </div>
     )
   }
+}
+
+Footer.proptypes = {
+  selectCount: PropTypes.number.isRequired
 }
 
 export default Footer

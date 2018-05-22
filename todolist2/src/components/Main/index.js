@@ -16,7 +16,7 @@ class Main extends Component {
         <ul className="list-group">
           {
             arr.map((item, index) => {
-              return <MainItem itemObj={item} key={index}/>
+              return <MainItem itemObj={item} index={index} key={index} {...this.props}/>
             })
           }
         </ul>

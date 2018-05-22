@@ -7,7 +7,7 @@ class Header extends Component {
 
     this.state = {
       val: "",
-      date: new Date().getTime()
+      isChecked: false
     }
 
   }
@@ -26,7 +26,16 @@ class Header extends Component {
 
   handleSubmit = () => {
     if(this.state.val) {
-      this.props.handleAddInfo(this.state)
+      let obj = {
+        date: new Date().getTime()
+      }
+
+      let params = Object.assign({}, this.state, obj)
+      this.props.handleAddInfo(params);
+
+      this.setState({
+        val: ""
+      })
     }else {
       alert("请输入内容后提交")
       return;
