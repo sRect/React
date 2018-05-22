@@ -3,6 +3,16 @@ import PropTypes from "prop-types"
 
 class Footer extends Component {
 
+  constructor() {
+    super()
+
+    this.handleDelete = this.handleDelete.bind(this)
+  }
+
+  handleDelete() {
+    this.props.handleDelete()
+  }
+
   render() {
     let selectCount = this.props.selectCount;
 
@@ -18,7 +28,7 @@ class Footer extends Component {
             </div>
           </div>
           <div className="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right">
-            <button type="button" className="btn btn-danger">删除</button>
+            <button type="button" className="btn btn-danger" onClick={this.handleDelete}>删除</button>
           </div>
         </div>
       </div>
@@ -27,7 +37,8 @@ class Footer extends Component {
 }
 
 Footer.proptypes = {
-  selectCount: PropTypes.number.isRequired
+  selectCount: PropTypes.number.isRequired,
+  handleDelete: PropTypes.func.isRequired
 }
 
 export default Footer

@@ -7,7 +7,7 @@ class MainItem extends Component {
     super(props)
 
     this.state = {
-      isChecked: props.itemObj.isChecked,
+      // isChecked: props.itemObj.isChecked,
       index: props.index
     }
   }
@@ -18,17 +18,22 @@ class MainItem extends Component {
     index: PropTypes.number.isRequired
   }
 
-  handleChange = () => {
-    let isChecked = !this.state.isChecked;
-
-    this.setState({
-      isChecked
-    })
+  /**
+   * 勾选事件
+   */
+  handleChange = (e) => { 
+    let istrue = e.target.checked;
+    // let isChecked = !this.state.isChecked;
+    console.log(istrue)
+    // this.setState({
+    //   isChecked
+    // })
 
     let newObj = {
-      isChecked: isChecked,
       val: this.props.itemObj.val,
-      date: this.props.itemObj.date,
+      isChecked: istrue,
+      date: this.props.itemObj.date
+      
     }
 
     this.props.handleChecked(this.state.index, newObj);
@@ -37,12 +42,12 @@ class MainItem extends Component {
 
   render() {
     let obj = this.props.itemObj
-    
+    console.log(obj)
     return(
       <li className="list-group-item">
         <div className="checkbox">
           <label>
-            <input type="checkbox" checked={this.state.isChecked} onChange={this.handleChange} />
+            <input type="checkbox" checked={obj.isChecked} onChange={this.handleChange} />
             <p>{obj.val} <small>{moment(obj.date).format('YYYY-MM-DD, h:mm:ss a')}</small></p>
           </label>
         </div>

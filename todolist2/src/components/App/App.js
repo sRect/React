@@ -32,7 +32,7 @@ class App extends Component {
    * checkbox勾选
    */
   handleChecked = (index, obj) => {
-    console.log(obj)
+    // console.log(obj)
     let arr = this.state.arr, selectCount = 0;
     arr.splice(index, 1, obj)
 
@@ -48,6 +48,28 @@ class App extends Component {
     })
   }
 
+  /**
+   * 删除事件
+   */
+  handleDelete = () => {
+    let arr = this.state.arr;
+
+    // for(let i = 0,len = arr.length; i < len; i++) {
+    //   if(arr[i].isChecked) {
+    //     arr.splice(i, 1);
+    //     i--;
+    //   }
+    // }
+    let newArr = arr.filter((item, index) => {
+      return (item.isChecked === false)
+    })
+    console.log(newArr)
+    this.setState({
+      arr: newArr,
+      selectCount: 0
+    })
+  }
+
   render() {
     let mainProps = {
       arr: this.state.arr,
@@ -58,7 +80,7 @@ class App extends Component {
       <div className="App">
         <Header handleAddInfo={this.handleAddInfo}/>
         <Main {...mainProps} />
-        <Footer selectCount={this.state.selectCount} />
+        <Footer selectCount={this.state.selectCount} handleDelete={this.handleDelete} />
       </div>
     );
   }
