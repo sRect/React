@@ -78,9 +78,12 @@ class App extends Component {
 
     return (
       <div className="App">
+        <div className="page-header text-center">
+          <h1>todolist  <small>demo</small></h1>
+        </div>
         <Header handleAddInfo={this.handleAddInfo}/>
         <Main {...mainProps} />
-        <Footer selectCount={this.state.selectCount} handleDelete={this.handleDelete} />
+        <Footer selectCount={this.state.selectCount} handleDelete={this.handleDelete} arr={this.state.arr} />
       </div>
     );
   }
