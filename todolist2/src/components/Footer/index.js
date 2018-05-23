@@ -7,10 +7,17 @@ class Footer extends Component {
     super(props)
 
     this.handleDelete = this.handleDelete.bind(this)
+    this.handleAllSelect = this.handleAllSelect.bind(this)
   }
 
   handleDelete() {
-    this.props.handleDelete()
+    this.props.handleDelete();
+  }
+
+  handleAllSelect(e) {
+    let isTrue = e.target.checked;
+
+    this.props.handleAllSelect(isTrue);
   }
 
   render() {
@@ -21,7 +28,7 @@ class Footer extends Component {
       <div className="container">
         <div className="row">
           <div className="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-            <div className="checkbox">
+            <div className="checkbox" onChange={this.handleAllSelect}>
               <label>
                 <input type="checkbox"/>
                 <span>已选择{selectCount}条，共{count}条</span>
@@ -40,7 +47,8 @@ class Footer extends Component {
 Footer.proptypes = {
   selectCount: PropTypes.number.isRequired,
   handleDelete: PropTypes.func.isRequired,
-  arr: PropTypes.array.isRequired
+  arr: PropTypes.array.isRequired,
+  handleAllSelect: PropTypes.func.isRequired
 }
 
 export default Footer
