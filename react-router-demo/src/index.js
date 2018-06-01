@@ -5,6 +5,7 @@ import { HashRouter, Route } from 'react-router-dom'
 import App from './components/App/App';
 import About from './components/About';
 import News from './components/News';
+import Detail from './components/Detail'
 import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render(
@@ -14,6 +15,7 @@ ReactDOM.render(
         <Route path="/" component={App} />
         <Route path="/news/:id" component={News} />
         <Route path="/about" component={About} />
+        <Route path="/news/:id/details" component={Detail} />
       </div>
     </HashRouter>
   ),
