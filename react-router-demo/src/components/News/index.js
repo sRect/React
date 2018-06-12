@@ -24,7 +24,7 @@ class News extends Component {
         <div>
           <Link to={{
             pathname: '/news/333/details'
-          }} activeclassname="active">详情
+          }} activeclassname="active">我也可以跳转详情
           </Link>
         </div>
 
