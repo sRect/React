@@ -65,11 +65,15 @@ let unsubscribe = store.subscribe(() => {
   console.log(store.getState())
 })
 
-unsubscribe();
+
 
 // 第四步：触发数据变化
 store.dispatch(addToCart("apple", 100, 1000))
+store.dispatch(addToCart('Flour 1kg', 2, 110));
+store.dispatch(addToCart('Juice 2L', 1, 250));
 
+
+unsubscribe();
 
 render(
   <App />,
