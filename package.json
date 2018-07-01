@@ -13,11 +13,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "react": "^16.3.2"
+    "react": "^16.3.2",
+    "react-redux": "^5.0.7"
   },
   "devDependencies": {
     "cz-conventional-changelog": "^2.1.0",
-    "live-server": "^1.2.0"
+    "live-server": "^1.2.0",
+    "redux-devtools-extension": "^2.13.5"
   },
   "config": {
     "commitizen": {
