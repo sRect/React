@@ -17,13 +17,13 @@ class App extends Component {
         <h1>App</h1>
         <ul>
           <li>
-            <Link 
+            <Link
               to={{
                 pathname: "/news/888",
                 search: "?title=hello react-router-dom",
                 hash: "good page",
-                state: {createTime: this.state.time}
-              }} 
+                state: { createTime: this.state.time }
+              }}
               activeclassname="active">News
             </Link>
           </li>

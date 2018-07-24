@@ -9,8 +9,6 @@ import { addToCart } from "./actions/cart-actions"
 console.log("initial state: ", store.getState());
 
 // 第三步：定义数据（即state）变化之后的派发规则
-
-
 let unsubscribe = store.subscribe(() => {
   console.log(store.getState())
 })
