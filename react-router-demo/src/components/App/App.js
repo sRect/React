@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
+import { Link, Route, Switch } from 'react-router-dom'
+
+import News from '../News'
+import About from '../About'
+import Detail from '../Detail'
 
 import './App.css';
 
@@ -20,17 +24,24 @@ class App extends Component {
             <Link
               to={{
                 pathname: "/news/888",
-                search: "?title=hello react-router-dom",
-                hash: "good page",
+                search: "?title=10086",
+                hash: "hello",
                 state: { createTime: this.state.time }
               }}
+              replace
               activeclassname="active">News
             </Link>
           </li>
-          <li><Link to="/about" activeclassname="active">About</Link></li>
+          <li><Link to="/about" activeclassname="active" replace>About</Link></li>
         </ul>
 
-        {this.props.children}
+        <div>
+          <Switch>
+            <Route path="/news/:id/details" component={Detail} />
+            <Route path="/news/:id" component={News} />
+            <Route path="/about" component={About} />
+          </Switch>
+        </div>
       </div>
     );
   }
