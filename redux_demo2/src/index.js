@@ -6,7 +6,7 @@ import registerServiceWorker from './registerServiceWorker';
 // import { createStore } from 'redux'
 import { Provider, connect } from 'react-redux'
 import store from './redux/store'
-import { increase, decrease } from './redux/actions'
+import { increase, decrease, handleAdd, handleDelete } from './redux/actions'
 
 // let num = 0;
 
@@ -28,7 +28,8 @@ import { increase, decrease } from './redux/actions'
 // 需要渲染什么数据
 let mapStateToProps = (state) => {
   return {
-    num: state.numReducer
+    num: state.numReducer,
+    arr: state.arrReducer
   }
 }
 
@@ -40,6 +41,12 @@ let mapDispatchToProps = (dispatch) => {
     },
     Decrease: () => {
       store.dispatch(decrease())
+    },
+    handleAdd: () => {
+      store.dispatch(handleAdd({ name: 'rose', age: 18 }))
+    },
+    handleDelete: () => {
+      store.dispatch(handleDelete())
     }
   }
 }

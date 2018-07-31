@@ -11,3 +11,17 @@ export const decrease = () => {
     type: types.DECREASE
   }
 }
+
+export const handleAdd = (arg) => {
+  return {
+    type: types.ADD,
+    arg: arg
+  }
+}
+
+export const handleDelete = (arg) => {
+  return {
+    type: types.DELETE,
+    arg: arg
+  }
+}

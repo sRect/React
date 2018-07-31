@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
+import TestComponent from '../Test'
 
 class App extends Component {
 
@@ -12,14 +13,25 @@ class App extends Component {
   render() {
     const { Increase, Decrease, num } = this.props;
 
+    const childrenProps = {
+      handleAdd: this.props.handleAdd,
+      handleDelete: this.props.handleDelete,
+      arr: this.props.arr
+    }
+
     return (
       <div className="App">
-        <p>num:{num}</p>
-        <div>
-          <button onClick={Increase}>increase</button>
-          <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
-          <button onClick={Decrease}>decrease</button>
-        </div>
+        <section>
+          <p>num:{num}</p>
+          <div>
+            <button onClick={Increase}>increase</button>
+            <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <button onClick={Decrease}>decrease</button>
+          </div>
+        </section>
+        <hr />
+
+        <TestComponent {...childrenProps} />
       </div>
     );
   }
