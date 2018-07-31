@@ -1,6 +1,13 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types';
 
 class App extends Component {
+
+  static propTypes = {
+    num: PropTypes.number.isRequired,
+    Increase: PropTypes.func.isRequired,
+    Decrease: PropTypes.func.isRequired
+  }
 
   render() {
     const { Increase, Decrease } = this.props;
