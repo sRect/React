@@ -9,9 +9,9 @@ class TestComponent extends Component {
     handleDelete: PropTypes.func.isRequired
   }
 
-  // handleAdd = () => {
-  //   this.props.handleAdd({ name: 'rose', age: 18 })
-  // }
+  handleAdd = () => {
+    this.props.handleAdd({ name: 'rose', age: 18 })
+  }
 
   render() {
     const { arr, handleAdd, handleDelete } = this.props;

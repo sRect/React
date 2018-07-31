@@ -20,6 +20,7 @@ export const handleAdd = (arg) => {
 }
 
 export const handleDelete = (arg) => {
+  console.log(arg)
   return {
     type: types.DELETE,
     arg: arg

@@ -42,8 +42,8 @@ let mapDispatchToProps = (dispatch) => {
     Decrease: () => {
       store.dispatch(decrease())
     },
-    handleAdd: () => {
-      store.dispatch(handleAdd({ name: 'rose', age: 18 }))
+    handleAdd: (...args) => {
+      store.dispatch(handleAdd(...args))
     },
     handleDelete: () => {
       store.dispatch(handleDelete())
