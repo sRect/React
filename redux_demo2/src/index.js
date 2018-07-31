@@ -3,30 +3,32 @@ import ReactDOM from 'react-dom';
 import App from './components/App';
 import registerServiceWorker from './registerServiceWorker';
 
-import { createStore } from 'redux'
+// import { createStore } from 'redux'
 import { Provider, connect } from 'react-redux'
+import store from './redux/store'
+import { increase, decrease } from './redux/actions'
 
-let num = 0;
+// let num = 0;
 
-// 定义reducer(计算规则)
-let reducer = (state = num, action) => {
-  switch (action.type) {
-    case "INCREASE":
-      return state + 1;
-    case "DECREASE":
-      return state - 1;
-    default:
-      return state;
-  }
-}
+// // 定义reducer(计算规则)
+// let reducer = (state = num, action) => {
+//   switch (action.type) {
+//     case "INCREASE":
+//       return state + 1;
+//     case "DECREASE":
+//       return state - 1;
+//     default:
+//       return state;
+//   }
+// }
 
-// 根据计算规则，生成store
-let store = createStore(reducer)
+// // 根据计算规则，生成store
+// let store = createStore(reducer)
 
 // 需要渲染什么数据
 let mapStateToProps = (state) => {
   return {
-    num: state
+    num: state.numReducer
   }
 }
 
@@ -34,10 +36,10 @@ let mapStateToProps = (state) => {
 let mapDispatchToProps = (dispatch) => {
   return {
     Increase: () => {
-      store.dispatch({ type: 'INCREASE' })
+      store.dispatch(increase())
     },
     Decrease: () => {
-      store.dispatch({ type: 'DECREASE' })
+      store.dispatch(decrease())
     }
   }
 }

@@ -10,10 +10,11 @@ class App extends Component {
   }
 
   render() {
-    const { Increase, Decrease } = this.props;
+    const { Increase, Decrease, num } = this.props;
+
     return (
       <div className="App">
-        <p>num:{this.props.num}</p>
+        <p>num:{num}</p>
         <div>
           <button onClick={Increase}>increase</button>
           <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
