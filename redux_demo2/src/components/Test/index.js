@@ -14,13 +14,13 @@ class TestComponent extends Component {
   }
 
   render() {
-    const { arr, handleAdd, handleDelete } = this.props;
+    const { arr } = this.props;
 
     return (
       <div>
         <section>
-          <input type="button" value="add" onClick={handleAdd} />
-          <input type="button" value="delete" onClick={handleDelete} />
+          <input type="button" value="add" onClick={this.handleAdd} />
+          <input type="button" value="delete" onClick={this.handleDelete} />
         </section>
         <ul>
           {
