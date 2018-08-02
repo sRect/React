@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
+import { Switch, Route, Link } from 'react-router-dom'
 
-// import News from '../News'
-// import About from '../About'
-// import Detail from '../Detail'
+
+import News from '../News'
+import About from '../About'
+import Detail from '../Detail'
 
 import './App.css';
 
@@ -36,11 +37,11 @@ class App extends Component {
         </ul>
 
         <div>
-          {/* <Switch>
+          <Switch>
             <Route path="/news/:id/details" component={Detail} />
             <Route path="/news/:id" component={News} />
             <Route path="/about" component={About} />
-          </Switch> */}
+          </Switch>
         </div>
       </div>
     );
