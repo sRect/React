@@ -16,7 +16,8 @@ class TestComponent extends Component {
   static propTypes = {
     arr: PropTypes.array.isRequired,
     handleAdd: PropTypes.func.isRequired,
-    handleDelete: PropTypes.func.isRequired
+    handleDelete: PropTypes.func.isRequired,
+    handleChecked: PropTypes.func.isRequired
   }
 
   handleInputChange = (e) => {
@@ -25,19 +26,32 @@ class TestComponent extends Component {
       newState = {};
 
     name === 'username' ? newState.name = val : newState.age = val;
-    this.setState(newState);
+    // this.setState(newState);
+
+    this.setState(() => (newState))
   }
 
-  handleCheckboxChange = () => {
+  handleCheckboxChange = (index) => {
     let checked = this.refs.checkbox.checked;
-    this.setState({
-      checked
+    console.log(index, checked)
+    this.props.handleChecked({
+      checked: checked,
+      index: index
     })
   }
 
   handleAdd = () => {
     if (this.state.name && this.state.age) {
       this.props.handleAdd(this.state)
+
+      this.setState(() => {
+        return {
+          name: '',
+          age: ''
+        }
+      })
+    } else {
+      alert('姓名/年龄不可为空')
     }
   }
 
@@ -66,7 +80,7 @@ class TestComponent extends Component {
             arr.map((item, index) => {
               return (
                 <li key={index}>
-                  <input type="checkbox" ref="checkbox" checked={this.state.checked} onChange={this.handleCheckboxChange} />
+                  <input type="checkbox" ref="checkbox" checked={item.checked} onChange={this.handleCheckboxChange.bind(this, index)} />
                   <span>name:{item.name}</span>
                   <i>--</i>
                   <span>age:{item.age}</span>

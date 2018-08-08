@@ -16,6 +16,7 @@ class App extends Component {
     const childrenProps = {
       handleAdd: this.props.handleAdd,
       handleDelete: this.props.handleDelete,
+      handleChecked: this.props.handleChecked,
       arr: this.props.arr
     }
 

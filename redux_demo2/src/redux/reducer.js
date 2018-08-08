@@ -19,6 +19,13 @@ let arrReducer = (state = arr, action) => {
       return [...state, ...[action.arg]];
     case types.DELETE:
       return state.unshift();
+    case types.CHECKED:
+      console.log(action)
+      let obj = state[action.arg.index];
+      obj.checked = action.arg.checked;
+      state.splice(action.arg.index, action.obj);
+
+      return [...state];
     default:
       return state;
   }

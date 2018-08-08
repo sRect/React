@@ -1,3 +1,3 @@
 export let num = 0;
 
-export let arr = [{ name: 'jack', age: 18 }]
+export let arr = [{ name: 'jack', age: 18, checked: false }]

@@ -2,7 +2,7 @@ import App from './Home/App'
 
 import { connect } from 'react-redux'
 import store from '../redux/store'
-import { increase, decrease, handleAdd, handleDelete } from '../redux/actions'
+import { increase, decrease, handleAdd, handleDelete, handleChecked } from '../redux/actions'
 
 // 需要渲染什么数据
 let mapStateToProps = (state) => {
@@ -23,6 +23,9 @@ let mapDispatchToProps = (dispatch) => {
     },
     handleAdd: (...args) => {
       store.dispatch(handleAdd(...args))
+    },
+    handleChecked: (...args) => {
+      store.dispatch(handleChecked(...args))
     },
     handleDelete: () => {
       store.dispatch(handleDelete())
