@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import './test.css'
 
 class TestComponent extends Component {
 
@@ -63,6 +64,7 @@ class TestComponent extends Component {
     }
   }
 
+  // 删除事件
   handleDelete = () => {
     this.props.handleDelete();
   }
@@ -72,30 +74,43 @@ class TestComponent extends Component {
     return (
       <div>
         <section>
-          <label htmlFor="name">姓名：</label>
-          <input type="text" id="name" name="username" placeholder="请输入您的姓名" value={this.state.name} onChange={this.handleInputChange} />
-          <label htmlFor="age">年龄：</label>
-          <input type="text" id="age" name="age" placeholder="请输入您的年龄" value={this.state.age} onChange={this.handleInputChange} />
+          <div style={{ marginBottom: '10px' }}>
+            <label htmlFor="name">姓名：</label>
+            <input type="text" id="name" name="username" placeholder="请输入您的姓名" value={this.state.name} onChange={this.handleInputChange} />
+            <label htmlFor="age">年龄：</label>
+            <input type="text" id="age" name="age" placeholder="请输入您的年龄" value={this.state.age} onChange={this.handleInputChange} />
+          </div>
 
-          <span>&nbsp;&nbsp;</span>
-          <input type="button" value="add" onClick={this.handleAdd} />
-          <span>&nbsp;&nbsp;</span>
-          <input type="button" value="delete" onClick={this.handleDelete} />
+          <div>
+            <span>&nbsp;&nbsp;</span>
+            <input type="button" value="add" onClick={this.handleAdd} />
+            <span>&nbsp;&nbsp;</span>
+            <input type="button" value="delete" onClick={this.handleDelete} />
+            <span>&nbsp;&nbsp;</span>
+            <input type="button" value="全选" onClick={this.handleCheckboxChange.bind(this, true)} />
+            <span>&nbsp;&nbsp;</span>
+            <input type="button" value="全部取消" onClick={this.handleCheckboxChange.bind(this, false)} />
+            <span>&nbsp;&nbsp;</span>
+            <input type="button" value="反选" onClick={this.handleCheckboxChange.bind(this, null)} />
+          </div>
         </section>
-        <ul>
-          {
-            arr.map((item, index) => {
-              return (
-                <li key={index}>
-                  <input type="checkbox" ref="checkbox" checked={item.checked} onChange={this.handleCheckboxChange.bind(this, index)} />
-                  <span>name:{item.name}</span>
-                  <i>--</i>
-                  <span>age:{item.age}</span>
-                </li>
-              )
-            })
-          }
-        </ul>
+        <section>
+          <span className={arr.length > 0 ? 'disactive' : 'active'}>暂无数据</span>
+          <ul>
+            {
+              arr.map((item, index) => {
+                return (
+                  <li key={index}>
+                    <input type="checkbox" ref="checkbox" checked={item.checked} onChange={this.handleCheckboxChange.bind(this, index)} />
+                    <span>name:{item.name}</span>
+                    <i>--</i>
+                    <span>age:{item.age}</span>
+                  </li>
+                )
+              })
+            }
+          </ul>
+        </section>
       </div>
     )
   }

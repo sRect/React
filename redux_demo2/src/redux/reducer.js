@@ -24,9 +24,24 @@ let arrReducer = (state = arr, action) => {
       })
 
     case types.CHECKED:
-      let obj = state[action.arg.index];
-      obj.checked = !obj.checked;
-      state.splice(action.arg.index, action.obj);
+      if (typeof action.arg.index === 'boolean' && action.arg.index) {
+        state.forEach(item => {
+          item.checked = true;
+        })
+      } else if (typeof action.arg.index === 'boolean' && !action.arg.index) {
+        state.forEach(item => {
+          item.checked = false;
+        })
+      } else if (typeof action.arg.index === 'object' && !action.arg.index) {
+        state.forEach(item => {
+          item.checked = !item.checked;
+        })
+      } else {
+        let obj = state[action.arg.index];
+        obj.checked = !obj.checked;
+        state.splice(action.arg.index, action.obj);
+      }
+
       return [...state];
 
     default:
