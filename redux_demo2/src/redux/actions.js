@@ -19,10 +19,9 @@ export const handleAdd = (arg) => {
   }
 }
 
-export const handleDelete = (arg) => {
+export const handleDelete = () => {
   return {
-    type: types.DELETE,
-    arg: arg
+    type: types.DELETE
   }
 }
 

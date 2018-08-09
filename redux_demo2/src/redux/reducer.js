@@ -17,13 +17,18 @@ let arrReducer = (state = arr, action) => {
   switch (action.type) {
     case types.ADD:
       return [...state, action.arg];
+
     case types.DELETE:
-      return state.unshift();
+      return state.filter((item) => {
+        return !item.checked;
+      })
+
     case types.CHECKED:
       let obj = state[action.arg.index];
       obj.checked = !obj.checked;
       state.splice(action.arg.index, action.obj);
       return [...state];
+
     default:
       return state;
   }

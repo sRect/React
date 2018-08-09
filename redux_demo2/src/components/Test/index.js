@@ -19,6 +19,7 @@ class TestComponent extends Component {
     handleChecked: PropTypes.func.isRequired
   }
 
+  // input框输入事件
   handleInputChange = (e) => {
     let name = e.target.name,
       val = e.target.value,
@@ -30,12 +31,14 @@ class TestComponent extends Component {
     this.setState(() => (newState))
   }
 
+  // 勾选事件
   handleCheckboxChange = (index) => {
     this.props.handleChecked({
       index: index
     })
   }
 
+  // 添加事件
   handleAdd = () => {
     if (this.state.name && this.state.age) {
       let name = this.state.name,
@@ -61,7 +64,7 @@ class TestComponent extends Component {
   }
 
   handleDelete = () => {
-
+    this.props.handleDelete();
   }
 
   render() {
