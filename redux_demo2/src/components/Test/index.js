@@ -8,8 +8,7 @@ class TestComponent extends Component {
 
     this.state = {
       name: '',
-      age: '',
-      checked: false
+      age: ''
     }
   }
 
@@ -32,17 +31,23 @@ class TestComponent extends Component {
   }
 
   handleCheckboxChange = (index) => {
-    let checked = this.refs.checkbox.checked;
-    console.log(index, checked)
     this.props.handleChecked({
-      checked: checked,
       index: index
     })
   }
 
   handleAdd = () => {
     if (this.state.name && this.state.age) {
-      this.props.handleAdd(this.state)
+      let name = this.state.name,
+        age = this.state.age,
+        checked = false,
+        obj = {
+          name,
+          age,
+          checked
+        }
+
+      this.props.handleAdd(obj)
 
       this.setState(() => {
         return {
@@ -61,7 +66,6 @@ class TestComponent extends Component {
 
   render() {
     const { arr } = this.props;
-
     return (
       <div>
         <section>
