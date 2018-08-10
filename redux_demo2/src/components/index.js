@@ -28,7 +28,10 @@ let mapDispatchToProps = (dispatch) => {
       store.dispatch(handleChecked(...args))
     },
     handleDelete: () => {
-      store.dispatch(handleDelete())
+      return new Promise((resolve) => {
+        store.dispatch(handleDelete())
+        resolve('ok')
+      })
     }
   }
 }

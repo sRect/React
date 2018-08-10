@@ -58,6 +58,8 @@ class TestComponent extends Component {
           name: '',
           age: ''
         }
+      }, () => {
+        console.log(this.ul.querySelectorAll('li').length)
       })
     } else {
       alert('姓名/年龄不可为空')
@@ -66,7 +68,9 @@ class TestComponent extends Component {
 
   // 删除事件
   handleDelete = () => {
-    this.props.handleDelete();
+    this.props.handleDelete().then((data) => {
+      console.log(this.ul.querySelectorAll('li').length)
+    });
   }
 
   render() {
@@ -96,7 +100,7 @@ class TestComponent extends Component {
         </section>
         <section>
           <span className={arr.length > 0 ? 'disactive' : 'active'}>暂无数据</span>
-          <ul>
+          <ul ref={(ul) => { this.ul = ul }}>
             {
               arr.map((item, index) => {
                 return (
