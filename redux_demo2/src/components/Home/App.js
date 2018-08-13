@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import TestComponent from '../Test'
+import Foo from '../Foo'
 
 class App extends Component {
 
@@ -33,6 +34,8 @@ class App extends Component {
         <hr />
 
         <TestComponent {...childrenProps} />
+
+        <Foo num={this.props.num}/>
       </div>
     );
   }
