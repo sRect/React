@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import PropTypes from 'prop-types'
 import './test.css'
 
@@ -101,18 +102,27 @@ class TestComponent extends Component {
         <section>
           <span className={arr.length > 0 ? 'disactive' : 'active'}>暂无数据</span>
           <ul ref={(ul) => { this.ul = ul }}>
-            {
-              arr.map((item, index) => {
-                return (
-                  <li key={index}>
-                    <input type="checkbox" ref="checkbox" checked={item.checked} onChange={this.handleCheckboxChange.bind(this, index)} />
-                    <span>name:{item.name}</span>
-                    <i>--</i>
-                    <span>age:{item.age}</span>
-                  </li>
-                )
-              })
-            }
+            <TransitionGroup>
+              {
+                arr.map((item, index) => {
+                  return (
+                    <CSSTransition
+                      timeout={300}
+                      classNames="fade"
+                      unmountOnExit
+                      key={index}
+                    >
+                      <li>
+                        <input type="checkbox" ref="checkbox" checked={item.checked} onChange={this.handleCheckboxChange.bind(this, index)} />
+                        <span>name:{item.name}</span>
+                        <i>--</i>
+                        <span>age:{item.age}</span>
+                      </li>
+                    </CSSTransition>
+                  )
+                })
+              }
+            </TransitionGroup>
           </ul>
         </section>
       </div>

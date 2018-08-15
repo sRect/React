@@ -5,3 +5,26 @@
 .disactive {
   display: none;
 }
+
+.fade-enter, .fade-appear {
+  opacity: 0;
+  color: #ccc;
+}
+.fade-enter-active, .fade-appear-active {
+  opacity: 1;
+  color: #333333;
+}
+.fade-enter-done {
+  opacity: 1;
+}
+.fade-exit {
+  opacity: 1;
+  color: #333333;
+}
+.fade-exit-active {
+  opacity: 1;
+  color: #ccc;
+} 
+.fade-exit-done {
+  opacity: 0;
+}
