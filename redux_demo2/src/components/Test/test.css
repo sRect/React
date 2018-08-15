@@ -13,6 +13,7 @@
 .fade-enter-active, .fade-appear-active {
   opacity: 1;
   color: #333333;
+  transition: opacity 1s ease-in;
 }
 .fade-enter-done {
   opacity: 1;
@@ -22,8 +23,9 @@
   color: #333333;
 }
 .fade-exit-active {
-  opacity: 1;
+  opacity: 0;
   color: #ccc;
+  transition: opacity 1s ease-in;
 } 
 .fade-exit-done {
   opacity: 0;

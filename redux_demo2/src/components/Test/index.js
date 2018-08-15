@@ -110,6 +110,10 @@ class TestComponent extends Component {
                       timeout={300}
                       classNames="fade"
                       unmountOnExit
+                      appear={true}
+                      onEntered={(el) => {
+                        el.lastChild.style.color = 'blue';
+                      }}
                       key={index}
                     >
                       <li>
