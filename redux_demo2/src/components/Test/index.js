@@ -13,9 +13,14 @@ class TestComponent extends Component {
       name: '',
       age: '',
       classNames: {
+        appear: 'bounceIn',
         appearActive: 'bounceIn',
+        enter: 'bounceIn',
         enterActive: 'bounceIn',
-        exitActive: 'bounceOut'
+        enterDone: 'bounceIn',
+        exit: 'bounceOut',
+        exitActive: 'bounceOut',
+        exitDone: 'bounceOut'
       }
     }
   }
