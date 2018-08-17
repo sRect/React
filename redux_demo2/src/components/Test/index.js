@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import PropTypes from 'prop-types'
 import './test.css'
+import 'animate.css/animate.min.css'
 
 class TestComponent extends Component {
 
@@ -10,7 +11,12 @@ class TestComponent extends Component {
 
     this.state = {
       name: '',
-      age: ''
+      age: '',
+      classNames: {
+        appearActive: 'bounceIn',
+        enterActive: 'bounceIn',
+        exitActive: 'bounceOut'
+      }
     }
   }
 
@@ -108,7 +114,7 @@ class TestComponent extends Component {
                   return (
                     <CSSTransition
                       timeout={300}
-                      classNames="fade"
+                      classNames={this.state.classNames}
                       unmountOnExit
                       appear={true}
                       onEntered={(el) => {
@@ -116,7 +122,7 @@ class TestComponent extends Component {
                       }}
                       key={index}
                     >
-                      <li>
+                      <li className="animated">
                         <input type="checkbox" ref="checkbox" checked={item.checked} onChange={this.handleCheckboxChange.bind(this, index)} />
                         <span>name:{item.name}</span>
                         <i>--</i>
