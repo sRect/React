@@ -1,5 +1,6 @@
 const initStates =  {
-  listData: ["jack"]
+  listData: ['default value'],
+  inputVal: ''
 }
 
 export default initStates

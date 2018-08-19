@@ -13,3 +13,10 @@ export const handleClickItem = (index) => {
     index
   }
 }
+
+export const handleInputChange = (value) => {
+  return {
+    type: types.HANDLEINPUTCHANGE,
+    value
+  }
+}
