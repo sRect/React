@@ -10,7 +10,7 @@ class AppUI extends React.Component {
     const { listData, handleClickItem, handleAdd } = this.props;
 
     return (
-      <div>
+      <div className="content">
         <div className="inputArea">
           <Search
             placeholder="请输入..."

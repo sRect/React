@@ -4,6 +4,10 @@
   text-align: center;
 }
 
+.content {
+  padding: 10px;
+}
+
 .inputArea, .list {
   width: 500px;
 }

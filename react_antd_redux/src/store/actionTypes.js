@@ -1,0 +1,2 @@
+export const HANDLEADD = 'HANDLEADD'
+export const HANDLECLICKITEM = 'HANDLECLICKITEM'
