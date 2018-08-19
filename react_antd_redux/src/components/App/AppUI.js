@@ -7,7 +7,7 @@ const Search = Input.Search;
 class AppUI extends React.Component {
 
   render() {
-    const { listData, handleClickItem, handleAdd, inputVal, handleInputChange } = this.props;
+    const { listData, handleClickItem, handleAdd, inputVal, handleInputChange, handlePressEnter } = this.props;
 
     return (
       <div className="content">
@@ -17,7 +17,8 @@ class AppUI extends React.Component {
             enterButton="add"
             value={ inputVal }
             onChange={ handleInputChange }
-            onSearch={value => { handleAdd(value) } }
+            onSearch={value => {handleAdd(value)} }
+            onPressEnter={handlePressEnter}
           />
         </div>
         <div className="list">

@@ -32,6 +32,12 @@ class App extends Component {
     store.dispatch(handleAdd(value));
   }
 
+  // 键盘回车事件
+  handlePressEnter = (e) => {
+    let value = e.target.value;
+    this.handleAdd(value);
+  }
+
   // store数据发生改变，执行的事件
   handleStoreChange = () => {
     this.setState(store.getState());
@@ -43,7 +49,8 @@ class App extends Component {
       handleClickItem: this.handleClickItem,
       handleAdd: this.handleAdd,
       inputVal: this.state.inputVal,
-      handleInputChange: this.handleInputChange
+      handleInputChange: this.handleInputChange,
+      handlePressEnter: this.handlePressEnter
     }
 
     return (
