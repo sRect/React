@@ -1,8 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import AppUI from './AppUI';
-import { handleAdd, handleClickItem, handleInputChange, getInitlist } from '../../store/actions';
+import { handleAdd, handleClickItem, handleInputChange, getInitList } from '../../store/actions';
 import store from '../../store';
-import axios from 'axios';
 
 class App extends Component {
 
@@ -62,14 +61,8 @@ class App extends Component {
   }
 
   componentDidMount() {
-    axios.get('https://easy-mock.com/mock/5aeb2da4d8f9ce513397a497/www.demo.com/listData').then(res => {
-      const data = res.data;
-      if (data.info === "ok") {
-        store.dispatch(getInitlist(data.data))
-      }
-    }).catch(error => {
-      console.log(error)
-    })
+    const action = getInitList(); // 此时的action是一个函数
+    store.dispatch(action)
   }
 }
 
