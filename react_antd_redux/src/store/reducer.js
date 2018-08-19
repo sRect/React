@@ -5,17 +5,20 @@ import initStates from './state'
 export default (state = initStates, action) => {
   const newState = JSON.parse(JSON.stringify(initStates));
 
-  switch(action.type) {
+  switch (action.type) {
     case types.HANDLEADD:
-      return Object.assign(state, {listData: [...newState.listData, action.value], inputVal: ''});
+      return Object.assign(state, { listData: [...newState.listData, action.value], inputVal: '' });
 
     case types.HANDLECLICKITEM:
       let arr = newState.listData;
       arr.splice(action.index, 1);
-      return Object.assign(state, {listData: [...arr]});
+      return Object.assign(state, { listData: [...arr] });
 
     case types.HANDLEINPUTCHANGE:
-      return Object.assign(state, {inputVal: action.value});
+      return Object.assign(state, { inputVal: action.value });
+
+    case types.GETINITLIST:
+      return Object.assign(state, { listData: [...action.data] })
 
     default:
       return state;

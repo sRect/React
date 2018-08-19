@@ -20,3 +20,10 @@ export const handleInputChange = (value) => {
     value
   }
 }
+
+export const getInitlist = (data) => {
+  return {
+    type: types.GETINITLIST,
+    data
+  }
+}
