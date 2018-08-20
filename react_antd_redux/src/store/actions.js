@@ -23,8 +23,14 @@ export const handleInputChange = (value) => {
 
 export const getInitListAction = (data) => {
   return {
-    type: types.GETINITLIST,
+    type: types.GETINITLISTACTION,
     data
+  }
+}
+
+export const getInitList = () => {
+  return {
+    type: types.GETINITLIST
   }
 }
 
