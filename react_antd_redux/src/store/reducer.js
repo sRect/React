@@ -20,6 +20,9 @@ export default (state = initStates, action) => {
     case types.GETINITLISTACTION:
       return Object.assign(state, { listData: [...action.data] })
 
+    case types.HANDLEADDNANOIDACTION:
+      return Object.assign(state, { listData: [...newState.listData, action.nanoid] })
+
     default:
       return state;
   }

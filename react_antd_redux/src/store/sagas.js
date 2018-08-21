@@ -1,7 +1,8 @@
 import { takeEvery, put } from 'redux-saga/effects'
-import { GETINITLIST } from './actionTypes'
-import { getInitListAction } from './actions'
+import { GETINITLIST, HANDLEADDNANOID } from './actionTypes'
+import { getInitListAction, handleAddNanoidAction } from './actions'
 import axios from 'axios';
+const nanoid = require('nanoid')
 
 function* getInitList() {
   try {
@@ -16,9 +17,21 @@ function* getInitList() {
   }
 }
 
+function* handleAddNanoid() {
+  try {
+    let myNanoid = yield nanoid();
+    console.log(myNanoid)
+    const action = handleAddNanoidAction(myNanoid);
+    yield put(action);
+  } catch (error) {
+    console.error("error:" + error)
+  }
+}
+
 // es6 genarator
 function* mySaga() {
   yield takeEvery(GETINITLIST, getInitList);
+  yield takeEvery(HANDLEADDNANOID, handleAddNanoid);
 }
 
 export default mySaga

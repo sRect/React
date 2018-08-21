@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import AppUI from './AppUI';
-import { handleAdd, handleClickItem, handleInputChange, getInitList } from '../../store/actions';
+import { handleAdd, handleClickItem, handleInputChange, getInitList, handleAddNanoid } from '../../store/actions';
 import store from '../../store';
 
 class App extends Component {
@@ -43,6 +43,11 @@ class App extends Component {
     this.setState(store.getState());
   }
 
+  // add nanoid
+  handleAddNanoid = () => {
+    store.dispatch(handleAddNanoid());
+  }
+
   render() {
     const childProps = {
       listData: this.state.listData,
@@ -50,7 +55,8 @@ class App extends Component {
       handleAdd: this.handleAdd,
       inputVal: this.state.inputVal,
       handleInputChange: this.handleInputChange,
-      handlePressEnter: this.handlePressEnter
+      handlePressEnter: this.handlePressEnter,
+      handleAddNanoid: this.handleAddNanoid
     }
 
     return (

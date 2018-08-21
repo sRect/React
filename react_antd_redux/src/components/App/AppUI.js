@@ -1,5 +1,5 @@
 import React from 'react'
-import { Input, List } from 'antd'
+import { Input, List, Button } from 'antd'
 import './App.css'
 
 const Search = Input.Search;
@@ -7,7 +7,7 @@ const Search = Input.Search;
 class AppUI extends React.Component {
 
   render() {
-    const { listData, handleClickItem, handleAdd, inputVal, handleInputChange, handlePressEnter } = this.props;
+    const { listData, handleClickItem, handleAdd, inputVal, handleInputChange, handlePressEnter, handleAddNanoid } = this.props;
 
     return (
       <div className="content">
@@ -15,11 +15,14 @@ class AppUI extends React.Component {
           <Search
             placeholder="请输入..."
             enterButton="add"
-            value={ inputVal }
-            onChange={ handleInputChange }
-            onSearch={value => {handleAdd(value)} }
+            value={inputVal}
+            onChange={handleInputChange}
+            onSearch={value => { handleAdd(value) }}
             onPressEnter={handlePressEnter}
           />
+        </div>
+        <div style={{ marginTop: "10px" }}>
+          <Button type="primary" onClick={handleAddNanoid}>add nanoid(test)</Button>
         </div>
         <div className="list">
           <List
@@ -28,13 +31,13 @@ class AppUI extends React.Component {
             bordered
             dataSource={listData}
             renderItem={(item, index) => (
-              <List.Item onClick={() => {handleClickItem(index)}}>
+              <List.Item onClick={() => { handleClickItem(index) }}>
                 {item}
               </List.Item>
             )}
           />
         </div>
-      </div>  
+      </div>
     )
   }
 }

@@ -34,3 +34,15 @@ export const getInitList = () => {
   }
 }
 
+export const handleAddNanoidAction = (nanoid) => {
+  return {
+    type: types.HANDLEADDNANOIDACTION,
+    nanoid
+  }
+}
+
+export const handleAddNanoid = () => {
+  return {
+    type: types.HANDLEADDNANOID
+  }
+}
