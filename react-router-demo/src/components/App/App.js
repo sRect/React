@@ -5,6 +5,7 @@ import { Switch, Route, Link } from 'react-router-dom'
 import News from '../News'
 import About from '../About'
 import Detail from '../Detail'
+import Waves from '../Waves'
 
 import './App.css';
 
@@ -34,6 +35,7 @@ class App extends Component {
             </Link>
           </li>
           <li><Link to="/about" activeclassname="active" replace>About</Link></li>
+          <li><Link to="/waves" activeclassname="active" replace>Waves(canvas)</Link></li>
         </ul>
 
         <div>
@@ -41,6 +43,7 @@ class App extends Component {
             <Route path="/news/:id/details" component={Detail} />
             <Route path="/news/:id" component={News} />
             <Route path="/about" component={About} />
+            <Route path="/waves" component={Waves} />
           </Switch>
         </div>
       </div>
