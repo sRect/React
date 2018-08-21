@@ -61,8 +61,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    const action = getInitList(); // 此时的action是一个函数
-    store.dispatch(action)
+    store.dispatch(getInitList())
   }
 }
 
