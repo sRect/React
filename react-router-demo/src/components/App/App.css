@@ -1,1 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+body{
+  padding: 10px;
+}
+
+.fl{
+	float: left;
+}
+
+.fr{
+	float: right;
+}
+
+.clearfix:after { content: ''; display: block; height: 0; clear: both; }
+.clearfix { zoom: 1; }
+
 .active {color: red;}
+
+li {
+  list-style: none;
+  margin-right: 10px;
+}
