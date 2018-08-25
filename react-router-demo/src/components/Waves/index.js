@@ -12,6 +12,7 @@ class Waves extends Component {
   render() {
     return (
       <div>
+        <h4>canvas</h4>
         <canvas ref="canvas">您的浏览器暂不支持canvas</canvas>
       </div>
     )
