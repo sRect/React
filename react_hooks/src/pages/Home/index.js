@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-import Hooks from "../../components/Hooks"
+import Hooks from "../../components/Hooks";
+import {UseStateComponent} from "../../components/FetchData";
 
 class Home extends Component {
   constructor() {
     super();
 
     this.state = {
-      msg: 'hello'
+      msg: 'hello',
+      username: '暂无数据'
     }
   }
 
@@ -19,7 +21,7 @@ class Home extends Component {
   }
 
   render() {
-    const props = {
+    const props1 = {
       intialState: this.state.msg,
       changeMsg: this.changeMsg
     }
@@ -27,7 +29,9 @@ class Home extends Component {
     return (
       <div>
         <h1>{this.state.msg}</h1>
-        <Hooks {...props} />
+        <Hooks {...props1} />
+        <hr/>
+        <UseStateComponent username={this.state.username}/>
       </div>
     )
   }
