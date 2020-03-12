@@ -4,6 +4,7 @@ import UseStateComponent from "../../components/FetchData";
 import MyUseState from "../../components/UseState/index";
 import MyUseEffect from "../../components/UseEffect";
 import MyUseRef from "../../components/UseRef";
+import MyUseMemo from "../../components/useMemo"
 
 class Home extends Component {
   constructor() {
@@ -38,9 +39,11 @@ class Home extends Component {
         <hr />
         <MyUseState />
         <hr />
-        <MyUseEffect /> */}
+        <MyUseEffect />
         <hr />
-        <MyUseRef />
+        <MyUseRef /> */}
+        <hr />
+        <MyUseMemo />
       </div>
     )
   }
