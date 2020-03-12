@@ -1,16 +1,17 @@
 import React, { useState, useMemo, memo } from 'react';
 
 const MyUseMemoChild = memo(({obj}) => {
-  console.log('child render...', obj.num);
+  console.log('child render...', obj.name);
 
   return (
-    <div>child: {obj.num}</div>
+    <div>child: {obj.name}</div>
   )
 })
 
 const MyUseMemo = () => {
   console.log("MyUseMemo render ==>");
   const [num, setNum] = useState(100);
+  const name = "hello"
 
   // const obj = {
   //   num
@@ -18,9 +19,9 @@ const MyUseMemo = () => {
 
   const obj = useMemo(() => {
     return {
-      num
+      name
     }
-  }, [num])
+  }, [name])
 
   return (
     <div>
