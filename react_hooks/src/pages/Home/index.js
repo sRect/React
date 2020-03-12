@@ -3,6 +3,7 @@ import Hooks from "../../components/Hooks";
 import UseStateComponent from "../../components/FetchData";
 import MyUseState from "../../components/UseState/index";
 import MyUseEffect from "../../components/UseEffect";
+import MyUseRef from "../../components/UseRef";
 
 class Home extends Component {
   constructor() {
@@ -32,12 +33,14 @@ class Home extends Component {
       <div>
         <h1>{this.state.msg}</h1>
         <Hooks {...props1} />
-        <hr/>
+        {/* <hr/>
         <UseStateComponent username={this.state.username}/>
         <hr />
         <MyUseState />
         <hr />
-        <MyUseEffect />
+        <MyUseEffect /> */}
+        <hr />
+        <MyUseRef />
       </div>
     )
   }
