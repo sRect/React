@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Hooks from "../../components/Hooks";
 import UseStateComponent from "../../components/FetchData";
-import MyUseState from "../../components/UseState/index"
+import MyUseState from "../../components/UseState/index";
+import MyUseEffect from "../../components/UseEffect";
 
 class Home extends Component {
   constructor() {
@@ -35,6 +36,8 @@ class Home extends Component {
         <UseStateComponent username={this.state.username}/>
         <hr />
         <MyUseState />
+        <hr />
+        <MyUseEffect />
       </div>
     )
   }
