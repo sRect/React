@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Hooks from "../../components/Hooks";
 import UseStateComponent from "../../components/FetchData";
+import MyUseState from "../../components/UseState/index"
 
 class Home extends Component {
   constructor() {
@@ -32,6 +33,8 @@ class Home extends Component {
         <Hooks {...props1} />
         <hr/>
         <UseStateComponent username={this.state.username}/>
+        <hr />
+        <MyUseState />
       </div>
     )
   }
