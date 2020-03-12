@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Hooks from "../../components/Hooks";
-import {UseStateComponent} from "../../components/FetchData";
+import UseStateComponent from "../../components/FetchData";
 
 class Home extends Component {
   constructor() {

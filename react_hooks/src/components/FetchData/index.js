@@ -1,7 +1,8 @@
-import React, { useState,useEffect} from 'react';
+import React, { useState,useEffect, memo} from 'react';
 
-export const UseStateComponent = ({intialMsg}) => {
-  let [msg, changeMsg] = useState(intialMsg);
+const UseStateComponent = ({username}) => {
+  console.log(username)
+  let [msg, changeMsg] = useState(username);
   let [uuid, changeData] = useState('');
 
   const fetchData = (url) => {
@@ -42,3 +43,6 @@ export const UseStateComponent = ({intialMsg}) => {
   )
   
 }
+
+// React.memo 是 React 16.6 新的一个 API，用来缓存组件的渲染，避免不必要的更新，其实也是一个高阶组件，与 PureComponent 十分类似，但不同的是， React.memo 只能用于函数组件
+export default memo(UseStateComponent)
