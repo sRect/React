@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import Hooks from "../../components/Hooks";
-import UseStateComponent from "../../components/FetchData";
-import MyUseState from "../../components/UseState/index";
-import MyUseEffect from "../../components/UseEffect";
-import MyUseRef from "../../components/UseRef";
-import MyUseMemo from "../../components/useMemo";
-import MyUseCallback from "../../components/UseCallback";
+// import UseStateComponent from "../../components/FetchData";
+// import MyUseState from "../../components/UseState/index";
+// import MyUseEffect from "../../components/UseEffect";
+// import MyUseRef from "../../components/UseRef";
+// import MyUseMemo from "../../components/useMemo";
+// import MyUseCallback from "../../components/UseCallback";
+import MyUseReducer from "../../components/UseReducer";
 
 class Home extends Component {
   constructor() {
@@ -44,9 +45,11 @@ class Home extends Component {
         <hr />
         <MyUseRef /> 
         <hr />
-        <MyUseMemo /> */}
+        <MyUseMemo />
         <hr />
-        <MyUseCallback />
+        <MyUseCallback /> */}
+        <hr />
+        <MyUseReducer />
       </div>
     )
   }
