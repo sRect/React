@@ -4,7 +4,8 @@ import UseStateComponent from "../../components/FetchData";
 import MyUseState from "../../components/UseState/index";
 import MyUseEffect from "../../components/UseEffect";
 import MyUseRef from "../../components/UseRef";
-import MyUseMemo from "../../components/useMemo"
+import MyUseMemo from "../../components/useMemo";
+import MyUseCallback from "../../components/UseCallback";
 
 class Home extends Component {
   constructor() {
@@ -41,9 +42,11 @@ class Home extends Component {
         <hr />
         <MyUseEffect />
         <hr />
-        <MyUseRef /> */}
+        <MyUseRef /> 
         <hr />
-        <MyUseMemo />
+        <MyUseMemo /> */}
+        <hr />
+        <MyUseCallback />
       </div>
     )
   }
