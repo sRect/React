@@ -4,11 +4,16 @@ import { Provider } from 'react-redux';
 import store from './store';
 import './index.css';
 import Home from './pages/Home';
+import WebWorker from './pages/WebWorker'
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <Provider store={store}>
-    <Home />
+    <div>
+      <Home />
+      <hr />
+      <WebWorker />
+    </div>
   </Provider>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
