@@ -6,7 +6,8 @@ import Hooks from "../../components/Hooks";
 // import MyUseRef from "../../components/UseRef";
 // import MyUseMemo from "../../components/useMemo";
 // import MyUseCallback from "../../components/UseCallback";
-import MyUseReducer from "../../components/UseReducer";
+// import MyUseReducer from "../../components/UseReducer";
+import MyUseContext from "../../components/UseContext";
 
 class Home extends Component {
   constructor() {
@@ -47,9 +48,11 @@ class Home extends Component {
         <hr />
         <MyUseMemo />
         <hr />
-        <MyUseCallback /> */}
+        <MyUseCallback /> 
         <hr />
-        <MyUseReducer />
+        <MyUseReducer /> */}
+        <hr />
+        <MyUseContext />
       </div>
     )
   }

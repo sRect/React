@@ -12,7 +12,7 @@ const MyUseRef = () => {
   })
 
   useEffect(() => {
-    console.log('use effect...', num);
+    console.log('use effect...num', num);
     const timer = setInterval(() =>{
       console.log('timer...num1:', countRef.current);
       setNum(countRef.current + 1);
@@ -22,7 +22,7 @@ const MyUseRef = () => {
   }, [num])
 
   useEffect(() => {
-    console.log('use effect...', num2);
+    console.log('use effect...num2', num2);
     const timer = setInterval(() => {
       console.log('timer...num2:', num2);
       setNum2(num2 + 1);
