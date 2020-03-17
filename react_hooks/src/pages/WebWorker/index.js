@@ -2,7 +2,8 @@ import React, { memo, useState, useEffect, useRef } from 'react';
 import Worker from '../../worker/file.worker.js';
 
 const WebWorker = () => {
-  const [file, setFile] = useState(null);
+  const [file, setFile] = useState({ name: "", size: 0 });
+  const [fileMd5, setFileMd5] = useState();
   const inputRef = useRef(null);
 
   const handleChange = e => {
@@ -17,15 +18,24 @@ const WebWorker = () => {
 
     if (file) {
       console.log("计算文件MD5...");
-      const worker = new Worker();
+      const worker = new Worker({
+        inline: true
+      });
       worker.postMessage(file);
       worker.addEventListener("message", (e) => {
-        console.log("主线程", e)
+        const { success, data } = e.data;
+        if (success) {
+          console.log("主线程,获取到文件MD5值：", data);
+          setFileMd5(data);
+        }
+
+        worker.terminate();
       });
 
       worker.addEventListener("error", (error) => {
-        console.log(error)
-      })
+        console.log(error);
+        worker.terminate();
+      });
     }
     
   }
@@ -41,6 +51,9 @@ const WebWorker = () => {
   return (
     <div>
       <h2>web worker demo</h2>
+      <p>filename: {file.name}</p>
+      <p>filesize: {(file.size / 1024).toFixed(2)}kb</p>
+      <p>fileMd5: {fileMd5}</p>
       <input type="file" ref={inputRef} onChange={handleChange} />
     </div>
   );
@@ -48,43 +61,3 @@ const WebWorker = () => {
 
 export default memo(WebWorker);
 
-/**
- * return new Promise(function (resolve, reject) {
-      // https://github.com/satazor/js-spark-md5
-      var blobSlice = File.prototype.slice || File.prototype.mozSlice || File.prototype.webkitSlice,
-        // file = this.files[0],
-        chunkSize = 2097152,                             // Read in chunks of 2MB
-        chunks = Math.ceil(file.size / chunkSize),
-        currentChunk = 0,
-        spark = new SparkMD5.ArrayBuffer(),
-        fileReader = new FileReader();
-
-      fileReader.onload = function (e) {
-        console.log('read chunk nr', currentChunk + 1, 'of', chunks);
-        spark.append(e.target.result);                   // Append array buffer
-        currentChunk++;
-
-        if (currentChunk < chunks) {
-          loadNext();
-        } else {
-          console.log('finished loading');
-          var md5Val = spark.end();
-          resolve(md5Val);
-        }
-      };
-
-      fileReader.onerror = function () {
-        console.warn('oops, something went wrong.');
-        reject('文件MD5生成失败');
-      };
-
-      function loadNext() {
-        var start = currentChunk * chunkSize,
-          end = ((start + chunkSize) >= file.size) ? file.size : start + chunkSize;
-
-        fileReader.readAsArrayBuffer(blobSlice.call(file, start, end));
-      }
-
-      loadNext();
-    })
- */
