@@ -13,12 +13,12 @@ class TodoStore {
   // 筛选类型
   @observable filterType;
 
-  filterTree = {
-    [COMPLETED]: true,
-    [UNCOMPLETED]: false
-  };
-
   constructor() {
+    this.filterTree = {
+      [COMPLETED]: true,
+      [UNCOMPLETED]: false
+    };
+    
     this.itemList = [{
       id: 1,
       content: '吃饭',
